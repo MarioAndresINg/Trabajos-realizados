@@ -1,2 +1,2 @@
 # Trabajos-realizados
-Los proyectos hechos por mi
+Los proyectos que se encuentran aqui son hechos por mi como practicas para la universidad UNAD
