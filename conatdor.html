@@ -1,0 +1,1449 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keined Cabezas Cedeño - Experto Contador Público</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&family=Crimson+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0a2463;
+            --secondary: #3e92cc;
+            --accent: #fffaff;
+            --gold: #f4a261;
+            --dark: #1e1b18;
+            --light: #f8f9fa;
+            --gradient-1: linear-gradient(135deg, #0a2463 0%, #3e92cc 100%);
+            --gradient-2: linear-gradient(135deg, #f4a261 0%, #e76f51 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--dark);
+            overflow-x: hidden;
+            background: var(--light);
+        }
+
+        /* Loading Animation */
+        .page-loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            animation: fadeOut 0.8s ease 2s forwards;
+        }
+
+        .loader-content {
+            text-align: center;
+            color: white;
+        }
+
+        .loader-logo {
+            font-family: 'Crimson Pro', serif;
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+
+        @keyframes fadeOut {
+            to {
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
+
+        /* Header & Navigation */
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            padding: 1.5rem 0;
+        }
+
+        .header.scrolled {
+            background: rgba(10, 36, 99, 0.98);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 10px 50px rgba(0, 0, 0, 0.3);
+            padding: 1rem 0;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Crimson Pro', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+            position: relative;
+            z-index: 10;
+            transition: all 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+            text-shadow: 0 0 30px rgba(244, 162, 97, 0.6);
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+        }
+
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            letter-spacing: 1px;
+            position: relative;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+        }
+
+        .nav-menu a::before {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: var(--gold);
+            transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .nav-menu a:hover::before {
+            width: 100%;
+        }
+
+        .nav-menu a:hover {
+            color: var(--gold);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: var(--gradient-1);
+            position: relative;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            padding-top: 80px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(244, 162, 97, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(62, 146, 204, 0.15) 0%, transparent 50%);
+            animation: breathe 15s ease-in-out infinite;
+        }
+
+        @keyframes breathe {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.8; transform: scale(1.1); }
+        }
+
+        .hero-particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: float-particle 20s infinite;
+        }
+
+        .particle:nth-child(1) { width: 80px; height: 80px; left: 10%; animation-delay: 0s; }
+        .particle:nth-child(2) { width: 60px; height: 60px; left: 20%; animation-delay: 2s; }
+        .particle:nth-child(3) { width: 100px; height: 100px; left: 60%; animation-delay: 4s; }
+        .particle:nth-child(4) { width: 70px; height: 70px; left: 80%; animation-delay: 6s; }
+        .particle:nth-child(5) { width: 90px; height: 90px; left: 40%; animation-delay: 8s; }
+
+        @keyframes float-particle {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.3; }
+            90% { opacity: 0.3; }
+            100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+        }
+
+        .hero-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 3rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+            position: relative;
+            z-index: 10;
+        }
+
+        .hero-text h1 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 5.5rem;
+            font-weight: 900;
+            color: white;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            opacity: 0;
+            animation: slideUp 1s ease 0.5s forwards;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-text .subtitle {
+            font-size: 1.8rem;
+            color: var(--gold);
+            font-weight: 600;
+            margin-bottom: 2rem;
+            opacity: 0;
+            animation: slideUp 1s ease 0.7s forwards;
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.8;
+            margin-bottom: 3rem;
+            opacity: 0;
+            animation: slideUp 1s ease 0.9s forwards;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 2rem;
+            opacity: 0;
+            animation: slideUp 1s ease 1.1s forwards;
+        }
+
+        .btn {
+            padding: 1.2rem 3rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            letter-spacing: 1px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            text-transform: uppercase;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transition: width 0.6s, height 0.6s, top 0.6s, left 0.6s;
+            transform: translate(-50%, -50%);
+        }
+
+        .btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .btn-primary {
+            background: var(--gradient-2);
+            color: white;
+            box-shadow: 0 15px 40px rgba(244, 162, 97, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 50px rgba(244, 162, 97, 0.6);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        .hero-image {
+            position: relative;
+            opacity: 0;
+            animation: slideUp 1s ease 1.3s forwards;
+        }
+
+        .hero-image-container {
+            position: relative;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4);
+            transform: rotate(-3deg);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .hero-image-container:hover {
+            transform: rotate(0deg) scale(1.05);
+            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-image-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .image-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(10, 36, 99, 0.3) 0%, rgba(244, 162, 97, 0.2) 100%);
+            opacity: 0.6;
+            transition: opacity 0.4s ease;
+        }
+
+        .hero-image-container:hover .image-overlay {
+            opacity: 0.3;
+        }
+
+        /* Trust Badges */
+        .trust-badges {
+            background: white;
+            padding: 4rem 3rem;
+            box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.05);
+        }
+
+        .trust-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 3rem;
+            text-align: center;
+        }
+
+        .trust-item {
+            padding: 2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .trust-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .trust-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .trust-number {
+            font-family: 'Crimson Pro', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .trust-label {
+            color: #666;
+            font-size: 1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 8rem 3rem;
+            background: linear-gradient(180deg, white 0%, #f8f9fa 100%);
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 5rem;
+        }
+
+        .section-label {
+            color: var(--gold);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 4rem;
+            color: var(--primary);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .section-description {
+            font-size: 1.2rem;
+            color: #666;
+            line-height: 1.8;
+        }
+
+        .services-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 25px;
+            padding: 3rem;
+            box-shadow: 0 10px 50px rgba(0, 0, 0, 0.08);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--gradient-2);
+            transform: scaleX(0);
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-icon {
+            width: 90px;
+            height: 90px;
+            background: var(--gradient-1);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 10px 30px rgba(10, 36, 99, 0.2);
+        }
+
+        .service-card:hover .service-icon {
+            transform: scale(1.1) rotate(5deg);
+            background: var(--gradient-2);
+        }
+
+        .service-card h3 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .service-card p {
+            color: #666;
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        /* About Section with Image */
+        .about {
+            padding: 8rem 3rem;
+            background: var(--gradient-1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(244, 162, 97, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .about-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6rem;
+            align-items: center;
+            position: relative;
+            z-index: 10;
+        }
+
+        .about-image-wrapper {
+            position: relative;
+        }
+
+        .about-image {
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.3);
+            position: relative;
+            transform: rotate(3deg);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .about-image:hover {
+            transform: rotate(0deg) scale(1.05);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .about-badge {
+            position: absolute;
+            bottom: -30px;
+            right: -30px;
+            background: var(--gradient-2);
+            color: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 20px 50px rgba(244, 162, 97, 0.4);
+            text-align: center;
+            z-index: 100;
+        }
+
+        .about-badge-number {
+            font-family: 'Crimson Pro', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            display: block;
+        }
+
+        .about-badge-text {
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .about-content h2 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 4rem;
+            color: white;
+            margin-bottom: 2rem;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .about-content p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .about-features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .about-feature {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .about-feature-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            flex-shrink: 0;
+        }
+
+        .about-feature-text {
+            color: white;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 8rem 3rem;
+            background: white;
+        }
+
+        .testimonials-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+            margin-top: 5rem;
+        }
+
+        .testimonial-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, white 100%);
+            padding: 3rem;
+            border-radius: 25px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+        }
+
+        .testimonial-quote {
+            font-size: 4rem;
+            color: var(--gold);
+            opacity: 0.3;
+            line-height: 1;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-text {
+            color: #666;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .testimonial-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--gradient-1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+
+        .testimonial-info h4 {
+            color: var(--primary);
+            font-weight: 700;
+            margin-bottom: 0.3rem;
+        }
+
+        .testimonial-info p {
+            color: #999;
+            font-size: 0.9rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 8rem 3rem;
+            background: var(--gradient-1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 30% 50%, rgba(244, 162, 97, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 70% 50%, rgba(62, 146, 204, 0.15) 0%, transparent 50%);
+        }
+
+        .cta-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 10;
+        }
+
+        .cta-container h2 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 4rem;
+            color: white;
+            margin-bottom: 2rem;
+            font-weight: 700;
+        }
+
+        .cta-container p {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 3rem;
+            line-height: 1.8;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 8rem 3rem;
+            background: white;
+        }
+
+        .contact-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6rem;
+            margin-top: 5rem;
+        }
+
+        .contact-info-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .contact-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, white 100%);
+            padding: 3rem;
+            border-radius: 25px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            transition: all 0.4s ease;
+        }
+
+        .contact-card:hover {
+            transform: translateX(10px);
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.12);
+        }
+
+        .contact-card-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient-1);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            flex-shrink: 0;
+        }
+
+        .contact-card-content h3 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-card-content p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        .contact-card-content a {
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .contact-card-content a:hover {
+            color: var(--gold);
+        }
+
+        .contact-image {
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.2);
+            height: 100%;
+        }
+
+        .contact-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 5rem 3rem 3rem;
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-brand h3 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--gold);
+        }
+
+        .footer-brand p {
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-link {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 1.3rem;
+        }
+
+        .social-link:hover {
+            background: var(--gold);
+            transform: translateY(-5px);
+        }
+
+        .footer-links h4 {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            color: var(--gold);
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 1rem;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2rem;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Scroll to Top Button */
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(244, 162, 97, 0.4);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s ease;
+            z-index: 1000;
+        }
+
+        .scroll-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(244, 162, 97, 0.6);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-content,
+            .about-container,
+            .contact-container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .services-grid,
+            .testimonials-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .trust-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .hero-text h1 {
+                font-size: 3.5rem;
+            }
+
+            .section-title {
+                font-size: 3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 2.5rem;
+            }
+
+            .services-grid,
+            .testimonials-grid,
+            .trust-container {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-buttons,
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+
+            .about-features {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <!-- Page Loader -->
+    <div class="page-loader">
+        <div class="loader-content">
+            <div class="loader-logo">KCC</div>
+            <p>Cargando Excelencia...</p>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="nav-container">
+            <a href="#" class="logo">KCC</a>
+            <ul class="nav-menu">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#nosotros">Nosotros</a></li>
+                <li><a href="#testimonios">Testimonios</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <div class="hero-particles">
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+        </div>
+        
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>KEINED CABEZAS CEDEÑO</h1>
+                <p class="subtitle">Contador Público Certificado</p>
+                <p>Transformando números en estrategias de éxito. Más de 15 años de experiencia brindando soluciones contables y fiscales de clase mundial que impulsan el crecimiento de su negocio.</p>
+                <div class="hero-buttons">
+                    <a href="#contacto" class="btn btn-primary">
+                        <span>Agendar Consulta</span>
+                        <span>→</span>
+                    </a>
+                    <a href="#servicios" class="btn btn-secondary">
+                        <span>Ver Servicios</span>
+                        <span>↓</span>
+                    </a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="hero-image-container">
+                    <img src="https://images.unsplash.com/photo-1554224154-26032ffc0d07?w=800&h=1000&fit=crop" alt="Profesional Contador">
+                    <div class="image-overlay"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Badges -->
+    <section class="trust-badges">
+        <div class="trust-container">
+            <div class="trust-item">
+                <span class="trust-icon">🏆</span>
+                <span class="trust-number">15+</span>
+                <span class="trust-label">Años de Experiencia</span>
+            </div>
+            <div class="trust-item">
+                <span class="trust-icon">👥</span>
+                <span class="trust-number">500+</span>
+                <span class="trust-label">Clientes Satisfechos</span>
+            </div>
+            <div class="trust-item">
+                <span class="trust-icon">✓</span>
+                <span class="trust-number">100%</span>
+                <span class="trust-label">Cumplimiento Legal</span>
+            </div>
+            <div class="trust-item">
+                <span class="trust-icon">📊</span>
+                <span class="trust-number">2M+</span>
+                <span class="trust-label">En Ahorro Fiscal</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section class="services" id="servicios">
+        <div class="section-header">
+            <p class="section-label">LO QUE OFRECEMOS</p>
+            <h2 class="section-title">Servicios Profesionales Integrales</h2>
+            <p class="section-description">Soluciones contables personalizadas que se adaptan a las necesidades únicas de su negocio, respaldadas por experiencia y compromiso con la excelencia.</p>
+        </div>
+
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">📊</div>
+                <h3>Contabilidad Empresarial</h3>
+                <p>Gestión contable completa con informes financieros detallados, análisis de rentabilidad y asesoría estratégica para la toma de decisiones acertadas.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">💰</div>
+                <h3>Planificación Fiscal</h3>
+                <p>Optimización tributaria legal, maximizando deducciones y minimizando cargas impositivas con estrategias fiscales personalizadas.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🔍</div>
+                <h3>Auditoría Profesional</h3>
+                <p>Auditorías financieras exhaustivas, revisión de controles internos y certificación de estados financieros con los más altos estándares.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">📈</div>
+                <h3>Consultoría Financiera</h3>
+                <p>Análisis financiero estratégico, proyecciones de crecimiento, valuación de empresas y asesoría en fusiones y adquisiciones.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🏢</div>
+                <h3>Constitución de Empresas</h3>
+                <p>Asesoría completa en la creación de sociedades, elección de estructura fiscal óptima y todos los trámites legales necesarios.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">👔</div>
+                <h3>Gestión de Nómina</h3>
+                <p>Administración integral de recursos humanos, cálculo de nómina, prestaciones sociales y cumplimiento de obligaciones laborales.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section class="about" id="nosotros">
+        <div class="about-container">
+            <div class="about-image-wrapper">
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=1000&fit=crop" alt="Análisis Financiero">
+                    <div class="image-overlay"></div>
+                </div>
+                <div class="about-badge">
+                    <span class="about-badge-number">15+</span>
+                    <span class="about-badge-text">Años de Éxito</span>
+                </div>
+            </div>
+
+            <div class="about-content">
+                <h2>Experiencia que Genera Resultados</h2>
+                <p>Con más de 15 años de trayectoria en el campo contable y tributario, he ayudado a cientos de empresas y emprendedores a alcanzar sus metas financieras mediante asesoría estratégica y soluciones innovadoras.</p>
+                <p>Mi compromiso es brindar un servicio personalizado de la más alta calidad, combinando conocimiento técnico profundo con un enfoque práctico orientado a resultados tangibles para cada cliente.</p>
+
+                <div class="about-features">
+                    <div class="about-feature">
+                        <div class="about-feature-icon">✓</div>
+                        <span class="about-feature-text">Certificado Profesional Vigente</span>
+                    </div>
+                    <div class="about-feature">
+                        <div class="about-feature-icon">✓</div>
+                        <span class="about-feature-text">Actualización Continua</span>
+                    </div>
+                    <div class="about-feature">
+                        <div class="about-feature-icon">✓</div>
+                        <span class="about-feature-text">Ética y Transparencia</span>
+                    </div>
+                    <div class="about-feature">
+                        <div class="about-feature-icon">✓</div>
+                        <span class="about-feature-text">Resultados Comprobados</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials" id="testimonios">
+        <div class="section-header">
+            <p class="section-label">TESTIMONIOS</p>
+            <h2 class="section-title">Lo Que Dicen Nuestros Clientes</h2>
+            <p class="section-description">La confianza de nuestros clientes es nuestro mayor activo</p>
+        </div>
+
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="testimonial-quote">"</div>
+                <p class="testimonial-text">Excelente profesional. Nos ayudó a optimizar nuestra carga tributaria de manera legal y ética. Los ahorros han sido significativos y su asesoría invaluable.</p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">MR</div>
+                    <div class="testimonial-info">
+                        <h4>María Rodríguez</h4>
+                        <p>CEO, TechCorp Solutions</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="testimonial-quote">"</div>
+                <p class="testimonial-text">Su atención personalizada y conocimiento profundo del área fiscal hicieron la diferencia para nuestra empresa. Altamente recomendado.</p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">JG</div>
+                    <div class="testimonial-info">
+                        <h4>Jorge Gómez</h4>
+                        <p>Director, Grupo Empresarial AGC</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="testimonial-quote">"</div>
+                <p class="testimonial-text">Profesionalismo y dedicación en cada consulta. Keined transformó completamente nuestra gestión contable. Un verdadero experto en su campo.</p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">AL</div>
+                    <div class="testimonial-info">
+                        <h4>Ana López</h4>
+                        <p>Gerente, Comercializadora del Valle</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-container">
+            <h2>¿Listo para Optimizar sus Finanzas?</h2>
+            <p>Agende una consulta gratuita hoy mismo y descubra cómo podemos ayudarle a alcanzar sus objetivos financieros con estrategias comprobadas y resultados medibles.</p>
+            <div class="cta-buttons">
+                <a href="#contacto" class="btn btn-primary">
+                    <span>Agendar Consulta Gratuita</span>
+                    <span>→</span>
+                </a>
+                <a href="tel:+573001234567" class="btn btn-secondary">
+                    <span>Llamar Ahora</span>
+                    <span>📞</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact" id="contacto">
+        <div class="section-header">
+            <p class="section-label">CONTACTO</p>
+            <h2 class="section-title">Hablemos de su Proyecto</h2>
+            <p class="section-description">Estoy disponible para atender sus consultas y necesidades contables</p>
+        </div>
+
+        <div class="contact-container">
+            <div class="contact-info-cards">
+                <div class="contact-card">
+                    <div class="contact-card-icon">📧</div>
+                    <div class="contact-card-content">
+                        <h3>Email</h3>
+                        <p><a href="mailto:keined.cabezas@contador.com">keined.cabezas@contador.com</a></p>
+                    </div>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-card-icon">📱</div>
+                    <div class="contact-card-content">
+                        <h3>Teléfono</h3>
+                        <p><a href="tel:+573001234567">+57 300 123 4567</a></p>
+                    </div>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-card-icon">📍</div>
+                    <div class="contact-card-content">
+                        <h3>Ubicación</h3>
+                        <p>Ibagué, Tolima<br>Colombia</p>
+                    </div>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-card-icon">🕐</div>
+                    <div class="contact-card-content">
+                        <h3>Horario</h3>
+                        <p>Lunes - Viernes: 8:00 AM - 6:00 PM<br>Sábados: 9:00 AM - 1:00 PM</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-image">
+                <img src="https://images.unsplash.com/photo-1554224154-22dec7ec8818?w=800&h=1000&fit=crop" alt="Trabajo Contable">
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-brand">
+                <h3>Keined Cabezas Cedeño</h3>
+                <p>Contador Público Certificado con más de 15 años de experiencia ofreciendo soluciones contables y fiscales de excelencia para empresas y emprendedores.</p>
+                <div class="footer-social">
+                    <a href="#" class="social-link" title="LinkedIn">in</a>
+                    <a href="#" class="social-link" title="Facebook">f</a>
+                    <a href="#" class="social-link" title="WhatsApp">W</a>
+                    <a href="#" class="social-link" title="Instagram">📷</a>
+                </div>
+            </div>
+
+            <div class="footer-links">
+                <h4>Servicios</h4>
+                <ul>
+                    <li><a href="#servicios">Contabilidad</a></li>
+                    <li><a href="#servicios">Asesoría Fiscal</a></li>
+                    <li><a href="#servicios">Auditoría</a></li>
+                    <li><a href="#servicios">Consultoría</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links">
+                <h4>Empresa</h4>
+                <ul>
+                    <li><a href="#nosotros">Nosotros</a></li>
+                    <li><a href="#testimonios">Testimonios</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="#">Términos de Servicio</a></li>
+                    <li><a href="#">Política de Privacidad</a></li>
+                    <li><a href="#">Código de Ética</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Keined Cabezas Cedeño. Todos los derechos reservados. | Diseñado con profesionalismo</p>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top -->
+    <div class="scroll-top" id="scrollTop">↑</div>
+
+    <script>
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Scroll to top button
+        const scrollTop = document.getElementById('scrollTop');
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 500) {
+                scrollTop.classList.add('visible');
+            } else {
+                scrollTop.classList.remove('visible');
+            }
+        });
+
+        scrollTop.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.service-card, .testimonial-card, .contact-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,1126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keined Cabezas Cedeño - Asesor Inmobiliario en Medellín | Tu Hogar Ideal Te Espera</title>
+    <meta name="description" content="Asesor inmobiliario experto en Medellín. Encuentra tu hogar ideal o vende tu propiedad con confianza. Más de 100 familias satisfechas.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1a5f7a;
+            --secondary: #2d8bba;
+            --accent: #f4a261;
+            --dark: #1a1a1a;
+            --light: #f8f9fa;
+            --white: #ffffff;
+            --success: #27ae60;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+
+        /* Header Professional */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 1.5rem 0;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-icon {
+            font-size: 2.5rem;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .logo-text h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .logo-text p {
+            font-size: 0.95rem;
+            opacity: 0.95;
+            margin: 0;
+        }
+
+        .contact-quick {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .contact-quick a {
+            color: white;
+            text-decoration: none;
+            padding: 0.7rem 1.5rem;
+            background: rgba(255,255,255,0.2);
+            border-radius: 30px;
+            transition: all 0.3s;
+            font-weight: 600;
+            backdrop-filter: blur(10px);
+        }
+
+        .contact-quick a:hover {
+            background: var(--accent);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(244, 162, 97, 0.4);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(26, 95, 122, 0.95) 0%, rgba(45, 139, 186, 0.95) 100%),
+                        url('https://cdn.pixabay.com/photo/2016/11/18/17/20/living-room-1835923_1280.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+            padding: 7rem 2rem 5rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 50%, rgba(244, 162, 97, 0.2) 0%, transparent 50%);
+            animation: pulse 8s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h2 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+            color: #000000;
+            text-shadow: 3px 3px 6px rgba(255,255,255,0.5);
+            animation: fadeInDown 1s;
+            line-height: 1.2;
+        }
+
+        .hero .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            font-weight: 300;
+            animation: fadeInUp 1s;
+        }
+
+        .hero .tagline {
+            font-size: 1.3rem;
+            margin-bottom: 3rem;
+            color: var(--accent);
+            font-weight: 600;
+            animation: fadeIn 1.5s;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            padding: 1.2rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.4s;
+            display: inline-block;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent) 0%, #e76f51 100%);
+            color: white;
+            box-shadow: 0 8px 25px rgba(244, 162, 97, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 12px 35px rgba(244, 162, 97, 0.6);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--primary);
+            border: 3px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: transparent;
+            color: white;
+            transform: translateY(-5px);
+        }
+
+        /* Stats Section */
+        .stats {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 3rem 2rem;
+        }
+
+        .stats-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-item {
+            padding: 1.5rem;
+            transition: transform 0.3s;
+        }
+
+        .stat-item:hover {
+            transform: scale(1.1);
+        }
+
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            opacity: 0.95;
+            font-weight: 500;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 5rem 2rem;
+        }
+
+        section h2 {
+            text-align: center;
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+            font-weight: 800;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.3rem;
+            color: #666;
+            margin-bottom: 3rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Services */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            transition: all 0.4s;
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            transform: scaleX(0);
+            transition: transform 0.4s;
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(26, 95, 122, 0.15);
+            border-color: var(--accent);
+        }
+
+        .service-icon {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        .service-card h3 {
+            font-size: 1.6rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .service-card p {
+            color: #666;
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+
+        /* About Section */
+        #sobre-mi {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: center;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .about-image {
+            text-align: center;
+        }
+
+        .profile-img {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 8px solid white;
+            box-shadow: 0 15px 50px rgba(26, 95, 122, 0.3);
+            transition: transform 0.4s;
+        }
+
+        .profile-img:hover {
+            transform: scale(1.05) rotate(5deg);
+        }
+
+        .about-text h3 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .about-text p {
+            font-size: 1.15rem;
+            line-height: 1.9;
+            color: #555;
+            margin-bottom: 1.5rem;
+        }
+
+        .credentials {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .credential-badge {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 0.7rem 1.5rem;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            box-shadow: 0 4px 15px rgba(26, 95, 122, 0.3);
+        }
+
+        /* Why Choose Me */
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .why-item {
+            text-align: center;
+            padding: 2rem;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+            transition: all 0.3s;
+        }
+
+        .why-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 45px rgba(26, 95, 122, 0.15);
+        }
+
+        .why-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .why-item h3 {
+            font-size: 1.4rem;
+            color: var(--primary);
+            margin-bottom: 0.8rem;
+            font-weight: 700;
+        }
+
+        .why-item p {
+            color: #666;
+            line-height: 1.7;
+        }
+
+        /* Testimonials */
+        #testimonios {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+        }
+
+        #testimonios h2 {
+            color: white;
+        }
+
+        #testimonios h2::after {
+            background: linear-gradient(90deg, transparent, white, transparent);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .testimonial-card {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            padding: 2.5rem;
+            border-radius: 20px;
+            border: 2px solid rgba(255,255,255,0.2);
+            transition: all 0.3s;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255,255,255,0.25);
+        }
+
+        .testimonial-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .author-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .author-info h4 {
+            font-size: 1.2rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .author-info p {
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        /* Contact Section */
+        #contacto {
+            background: linear-gradient(135deg, #f8f9fa 0%, #fff 100%);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .contact-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            text-align: center;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .contact-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 50px rgba(26, 95, 122, 0.15);
+        }
+
+        .contact-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+
+        .contact-card h3 {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .contact-card p {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-card a {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 5px 20px rgba(26, 95, 122, 0.3);
+        }
+
+        .contact-card a:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 30px rgba(26, 95, 122, 0.5);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--accent) 0%, #e76f51 100%);
+            color: white;
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            color: white;
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-section p {
+            font-size: 1.4rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.95;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        footer p {
+            margin-bottom: 1rem;
+            opacity: 0.9;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 2rem;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--accent);
+            transform: translateY(-5px);
+        }
+
+        /* Floating WhatsApp */
+        .floating-whatsapp {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, #25D366 0%, #20ba5a 100%);
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.6);
+            cursor: pointer;
+            transition: all 0.3s;
+            z-index: 1000;
+            text-decoration: none;
+            animation: floatBounce 3s infinite;
+        }
+
+        @keyframes floatBounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        .floating-whatsapp:hover {
+            transform: scale(1.15);
+            box-shadow: 0 12px 35px rgba(37, 211, 102, 0.8);
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .hero h2 {
+                font-size: 2.5rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .profile-img {
+                width: 250px;
+                height: 250px;
+            }
+
+            .contact-quick {
+                flex-direction: column;
+                width: 100%;
+                margin-top: 1rem;
+            }
+
+            .header-content {
+                text-align: center;
+                justify-content: center;
+            }
+
+            section h2 {
+                font-size: 2.2rem;
+            }
+        }
+
+        /* Trust Badges */
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin: 3rem 0;
+        }
+
+        .trust-badge {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 1rem 2rem;
+            background: white;
+            border-radius: 50px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .trust-badge-icon {
+            font-size: 1.8rem;
+            color: var(--success);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo-section">
+                <div class="logo-icon">🏡</div>
+                <div class="logo-text">
+                    <h1>Keined Cabezas Cedeño</h1>
+                    <p>Asesor Inmobiliario Profesional</p>
+                </div>
+            </div>
+            <div class="contact-quick">
+                <a href="#contacto">📞 Contactar</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h2>Tu Hogar Ideal Te Espera</h2>
+            <p class="subtitle">Convierte tus sueños inmobiliarios en realidad</p>
+            <p class="tagline">✨ Experto en el mercado de Medellín • Más de 100 familias felices</p>
+            
+            <div class="trust-badges">
+                <div class="trust-badge">
+                    <span class="trust-badge-icon">✓</span>
+                    <span>Asesoría Personalizada</span>
+                </div>
+                <div class="trust-badge">
+                    <span class="trust-badge-icon">✓</span>
+                    <span>100% Confiable</span>
+                </div>
+                <div class="trust-badge">
+                    <span class="trust-badge-icon">✓</span>
+                    <span>Resultados Garantizados</span>
+                </div>
+            </div>
+
+            <div class="cta-buttons">
+                <a href="#contacto" class="btn btn-primary">Quiero Comprar o Vender</a>
+                <a href="#servicios" class="btn btn-secondary">Ver Servicios</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <div class="stat-number">100+</div>
+                <div class="stat-label">Familias Satisfechas</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">5+</div>
+                <div class="stat-label">Años de Experiencia</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">150+</div>
+                <div class="stat-label">Propiedades Vendidas</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">98%</div>
+                <div class="stat-label">Clientes Recomiendan</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="servicios">
+        <div class="container">
+            <h2>Servicios Profesionales</h2>
+            <p class="section-subtitle">Soluciones completas para todas tus necesidades inmobiliarias</p>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🏠</div>
+                    <h3>Compra de Vivienda</h3>
+                    <p>Te ayudo a encontrar la casa de tus sueños con las mejores opciones del mercado. Asesoría completa desde la búsqueda hasta la escrituración.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">💰</div>
+                    <h3>Venta de Propiedades</h3>
+                    <p>Vende tu propiedad al mejor precio y en el menor tiempo. Estrategias de marketing efectivas y negociación profesional.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🔑</div>
+                    <h3>Arrendamiento</h3>
+                    <p>Encuentra el inquilino ideal o el inmueble perfecto para rentar. Gestión completa y verificación de antecedentes.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">📊</div>
+                    <h3>Avalúos Comerciales</h3>
+                    <p>Conoce el valor real de tu propiedad con análisis detallado del mercado y comparación de precios actuales.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🏢</div>
+                    <h3>Inversión Inmobiliaria</h3>
+                    <p>Asesoría especializada para invertir inteligentemente en el mercado inmobiliario de Medellín y generar rentabilidad.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">📄</div>
+                    <h3>Asesoría Legal</h3>
+                    <p>Acompañamiento en todo el proceso legal, trámites notariales y verificación de documentos para transacciones seguras.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="sobre-mi">
+        <div class="container">
+            <h2>Conoce a Tu Asesor</h2>
+            <p class="section-subtitle">Experiencia, profesionalismo y compromiso a tu servicio</p>
+            
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="https://cdn.pixabay.com/photo/2016/11/21/14/53/man-1845814_1280.jpg" 
+                         alt="Keined Cabezas Cedeño - Asesor Inmobiliario" 
+                         class="profile-img"
+                         onerror="this.src='https://cdn.pixabay.com/photo/2016/11/18/19/07/happy-1836445_1280.jpg'">
+                </div>
+                <div class="about-text">
+                    <h3>Keined Cabezas Cedeño</h3>
+                    <p><strong>Mi compromiso es simple:</strong> Hacer realidad tus sueños inmobiliarios con honestidad, transparencia y resultados excepcionales.</p>
+                    
+                    <p>Con más de 5 años de experiencia en el mercado inmobiliario de Medellín, he ayudado a más de 100 familias a encontrar su hogar ideal o a vender sus propiedades exitosamente.</p>
+                    
+                    <p>No solo vendo casas, construyo confianza y relaciones duraderas. Cada cliente es único y merece una atención personalizada que supere sus expectativas.</p>
+                    
+                    <div class="credentials">
+                        <span class="credential-badge">✓ Asesor Certificado</span>
+                        <span class="credential-badge">✓ Experto en Medellín</span>
+                        <span class="credential-badge">✓ Disponibilidad 24/7</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="por-que">
+        <div class="container">
+            <h2>¿Por Qué Elegirme?</h2>
+            <p class="section-subtitle">La diferencia que marca el éxito en tu transacción inmobiliaria</p>
+            
+            <div class="why-grid">
+                <div class="why-item">
+                    <div class="why-icon">🎯</div>
+                    <h3>Enfoque Personalizado</h3>
+                    <p>Cada cliente es único. Escucho tus necesidades y diseño estrategias a tu medida.</p>
+                </div>
+
+                <div class="why-item">
+                    <div class="why-icon">⚡</div>
+                    <h3>Respuesta Rápida</h3>
+                    <p>Disponibilidad inmediata. Respondo tus consultas y coordino visitas sin demoras.</p>
+                </div>
+
+                <div class="why-item">
+                    <div class="why-icon">🤝</div>
+                    <h3>Honestidad Total</h3>
+                    <p>Transparencia en cada paso. Sin sorpresas, solo información clara y veraz.</p>
+                </div>
+
+                <div class="why-item">
+                    <div class="why-icon">📈</div>
+                    <h3>Conocimiento del Mercado</h3>
+                    <p>Experto local en Medellín. Conozco cada sector, precios y oportunidades.</p>
+                </div>
+
+                <div class="why-item">
+                    <div class="why-icon">💼</div>
+                    <h3>Negociador Experto</h3>
+                    <p>Logro las mejores condiciones para ti, ya sea comprando o vendiendo.</p>
+                </div>
+
+                <div class="why-item">
+                    <div class="why-icon">🔒</div>
+                    <h3>Transacciones Seguras</h3>
+                    <p>Proceso legal completo y verificación exhaustiva para tu tranquilidad.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonios">
+        <div class="container">
+            <h2>Lo Que Dicen Mis Clientes</h2>
+            <p class="section-subtitle" style="color: rgba(255,255,255,0.9);">Experiencias reales de familias satisfechas</p>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Keined nos ayudó a encontrar nuestra primera casa. Su paciencia, conocimiento y dedicación fueron excepcionales. ¡Totalmente recomendado!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">MC</div>
+                        <div class="author-info">
+                            <h4>María Camila R.</h4>
+                            <p>Compradora - El Poblado</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Vendí mi apartamento en tiempo récord gracias a su estrategia de marketing. Profesional, honesto y muy efectivo. Lo mejor de Medellín."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">JL</div>
+                        <div class="author-info">
+                            <h4>Jorge Luis M.</h4>
+                            <p>Vendedor - Laureles</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Excelente asesoría en todo momento. Nos guió paso a paso en la compra de nuestra casa. Siempre disponible y muy profesional."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">AP</div>
+                        <div class="author-info">
+                            <h4>Ana Patricia S.</h4>
+                            <p>Compradora - Envigado</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto">
+        <div class="container">
+            <h2>Hablemos de Tu Proyecto</h2>
+            <p class="section-subtitle">Estoy aquí para ayudarte a alcanzar tus metas inmobiliarias</p>
+            
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <div class="contact-icon">📱</div>
+                    <h3>WhatsApp</h3>
+                    <p>Respuesta inmediata</p>
+                    <a href="https://wa.me/573001234567?text=Hola%20Keined,%20estoy%20interesado%20en%20tus%20servicios%20inmobiliarios" target="_blank">Chatear Ahora</a>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-icon">📧</div>
+                    <h3>Email</h3>
+                    <p>keined.cabezas@inmobiliaria.com</p>
+                    <a href="mailto:keined.cabezas@inmobiliaria.com">Enviar Email</a>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-icon">📍</div>
+                    <h3>Ubicación</h3>
+                    <p>Medellín, Antioquia</p>
+                    <a href="#contacto">Ver Zonas de Cobertura</a>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 3rem; padding: 2rem; background: white; border-radius: 15px; box-shadow: 0 10px 40px rgba(0,0,0,0.08);">
+                <h3 style="color: var(--primary); margin-bottom: 1rem; font-size: 1.8rem;">📍 Áreas de Servicio en Medellín</h3>
+                <p style="font-size: 1.1rem; color: #666; line-height: 1.8;">
+                    <strong>Cobertura completa:</strong> El Poblado, Laureles, Envigado, Sabaneta, Belén, Estadio, La América, Calasanz, y toda el área metropolitana del Valle de Aburrá.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <h2>¿Listo Para Dar El Siguiente Paso?</h2>
+            <p>No esperes más. Tu hogar ideal o el comprador perfecto están más cerca de lo que crees.</p>
+            <a href="https://wa.me/573001234567?text=Hola%20Keined,%20quiero%20información%20sobre%20tus%20servicios" class="btn btn-secondary" target="_blank" style="background: white; color: var(--primary); font-size: 1.2rem; padding: 1.3rem 3rem;">
+                💬 Contactar por WhatsApp
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p><strong>Keined Cabezas Cedeño</strong> - Asesor Inmobiliario Profesional</p>
+            <p>Medellín, Antioquia • Colombia</p>
+            <p style="margin-top: 2rem; opacity: 0.8;">&copy; 2026 Todos los derechos reservados</p>
+            <p style="font-size: 0.9rem; margin-top: 1rem;">
+                🏡 Tu confianza es mi mayor logro • Construyendo sueños, un hogar a la vez
+            </p>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/573001234567?text=Hola%20Keined,%20necesito%20asesoría%20inmobiliaria" class="floating-whatsapp" target="_blank">
+        💬
+    </a>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }, index * 100);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.service-card, .why-item, .testimonial-card, .contact-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(40px)';
+            card.style.transition = 'all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+            observer.observe(card);
+        });
+
+        // Counter animation for stats
+        function animateCounter(element, target) {
+            let current = 0;
+            const increment = target / 50;
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    element.textContent = target + (element.textContent.includes('%') ? '%' : '+');
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(current) + (element.textContent.includes('%') ? '%' : '+');
+                }
+            }, 30);
+        }
+
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const number = entry.target.querySelector('.stat-number');
+                    const target = parseInt(number.textContent);
+                    animateCounter(number, target);
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll('.stat-item').forEach(item => {
+            statsObserver.observe(item);
+        });
+    </script>
+</body>
+</html>
