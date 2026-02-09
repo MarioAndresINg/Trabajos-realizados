@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarot Místico - Descubre tu Destino</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-purple: #4a1a4a;
+            --deep-purple: #2d1b3d;
+            --gold: #d4af37;
+            --light-gold: #f4e5c2;
+            --mystical-blue: #1e3a5f;
+            --soft-cream: #faf7f0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Crimson Text', serif;
+            background: linear-gradient(135deg, var(--deep-purple) 0%, var(--mystical-blue) 100%);
+            color: var(--soft-cream);
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Estrellas animadas de fondo */
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 3s infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+
+        /* Header */
+        header {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            padding: 4rem 2rem 2rem;
+            background: linear-gradient(180deg, rgba(42, 27, 61, 0.9) 0%, transparent 100%);
+        }
+
+        .logo {
+            font-family: 'Cinzel', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--gold);
+            text-shadow: 0 0 30px rgba(212, 175, 55, 0.5);
+            margin-bottom: 0.5rem;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { text-shadow: 0 0 20px rgba(212, 175, 55, 0.4); }
+            to { text-shadow: 0 0 40px rgba(212, 175, 55, 0.8); }
+        }
+
+        .tagline {
+            font-size: 1.4rem;
+            color: var(--light-gold);
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        .divider {
+            width: 200px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            margin: 1.5rem auto;
+        }
+
+        /* Introducción */
+        .intro {
+            position: relative;
+            z-index: 10;
+            max-width: 800px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+            text-align: center;
+        }
+
+        .intro p {
+            font-size: 1.25rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            color: var(--light-gold);
+        }
+
+        /* Servicios */
+        .services {
+            position: relative;
+            z-index: 10;
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            font-family: 'Cinzel', serif;
+            font-size: 2.5rem;
+            text-align: center;
+            color: var(--gold);
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '✦';
+            display: block;
+            font-size: 1.5rem;
+            margin-top: 0.5rem;
+            animation: rotate 4s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(212, 175, 55, 0.3);
+            border-radius: 15px;
+            padding: 2rem;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
+            transform: rotate(0deg);
+            transition: transform 0.6s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--gold);
+            box-shadow: 0 10px 40px rgba(212, 175, 55, 0.3);
+        }
+
+        .service-card:hover::before {
+            transform: rotate(180deg);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .service-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.6rem;
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+
+        .service-description {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            color: var(--light-gold);
+        }
+
+        .service-price {
+            font-family: 'Cinzel', serif;
+            font-size: 2rem;
+            color: var(--gold);
+            font-weight: 600;
+            margin: 1rem 0;
+        }
+
+        .service-details {
+            font-size: 0.95rem;
+            color: rgba(244, 229, 194, 0.8);
+            margin-top: 0.5rem;
+        }
+
+        /* Botón WhatsApp flotante */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 25px rgba(37, 211, 102, 0.5);
+            cursor: pointer;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 35px rgba(37, 211, 102, 0.7);
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .whatsapp-float svg {
+            width: 40px;
+            height: 40px;
+            fill: white;
+        }
+
+        /* Llamado a la acción */
+        .cta-section {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            padding: 4rem 2rem;
+            margin: 4rem auto;
+            max-width: 800px;
+        }
+
+        .cta-title {
+            font-family: 'Cinzel', serif;
+            font-size: 2rem;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-text {
+            font-size: 1.2rem;
+            color: var(--light-gold);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1.2rem 3rem;
+            background: linear-gradient(135deg, var(--gold) 0%, #b8941f 100%);
+            color: var(--deep-purple);
+            font-family: 'Cinzel', serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(212, 175, 55, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(212, 175, 55, 0.5);
+        }
+
+        /* Footer */
+        footer {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+            background: rgba(42, 27, 61, 0.6);
+            border-top: 1px solid rgba(212, 175, 55, 0.3);
+        }
+
+        footer p {
+            color: var(--light-gold);
+            font-size: 1rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 2.5rem;
+            }
+
+            .tagline {
+                font-size: 1.1rem;
+            }
+
+            .intro p {
+                font-size: 1.1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .whatsapp-float {
+                width: 60px;
+                height: 60px;
+                bottom: 20px;
+                right: 20px;
+            }
+
+            .whatsapp-float svg {
+                width: 35px;
+                height: 35px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Estrellas de fondo -->
+    <div class="stars" id="stars"></div>
+
+    <!-- Header -->
+    <header>
+        <h1 class="logo">🌙 Tarot Místico 🌙</h1>
+        <p class="tagline">Descubre los secretos que el universo tiene para ti</p>
+        <div class="divider"></div>
+    </header>
+
+    <!-- Introducción -->
+    <section class="intro">
+        <p>
+            Bienvenido a un espacio donde lo místico y lo terrenal se encuentran. A través de las cartas del tarot, 
+            te guiaré en un viaje de autodescubrimiento y claridad espiritual.
+        </p>
+        <p>
+            Con años de experiencia interpretando los arcanos, te ofrezco respuestas honestas y profundas 
+            sobre amor, trabajo, finanzas, salud y tu camino espiritual. Cada lectura es única y personalizada, 
+            diseñada específicamente para iluminar tu sendero.
+        </p>
+    </section>
+
+    <!-- Servicios -->
+    <section class="services">
+        <h2 class="section-title">Mis Servicios</h2>
+        
+        <div class="services-grid">
+            <!-- Servicio 1 -->
+            <div class="service-card">
+                <span class="service-icon">🔮</span>
+                <h3 class="service-title">Lectura Respuesta Única</h3>
+                <p class="service-description">
+                    ¿Tienes una pregunta específica que necesita claridad? Obtén una respuesta directa y profunda 
+                    del tarot sobre cualquier aspecto de tu vida.
+                </p>
+                <p class="service-price">$15.000 COP</p>
+                <p class="service-details">• 1 pregunta • Respuesta detallada • Duración: 15-20 min</p>
+            </div>
+
+            <!-- Servicio 2 -->
+            <div class="service-card">
+                <span class="service-icon">✨</span>
+                <h3 class="service-title">Lectura de 3 Preguntas</h3>
+                <p class="service-description">
+                    Ideal para explorar diferentes áreas de tu vida. Tres preguntas profundas con interpretación 
+                    detallada de las cartas y orientación práctica.
+                </p>
+                <p class="service-price">$35.000 COP</p>
+                <p class="service-details">• 3 preguntas • Interpretación completa • Duración: 30-40 min</p>
+            </div>
+
+            <!-- Servicio 3 -->
+            <div class="service-card">
+                <span class="service-icon">🌟</span>
+                <h3 class="service-title">Lectura Amor y Relaciones</h3>
+                <p class="service-description">
+                    Descubre qué te depara el destino en el amor. Analiza tu relación actual, atrae el amor 
+                    que mereces o comprende patrones emocionales.
+                </p>
+                <p class="service-price">$40.000 COP</p>
+                <p class="service-details">• Enfoque romántico • Tirada especial • Duración: 40-50 min</p>
+            </div>
+
+            <!-- Servicio 4 -->
+            <div class="service-card">
+                <span class="service-icon">💼</span>
+                <h3 class="service-title">Lectura Trabajo y Finanzas</h3>
+                <p class="service-description">
+                    Claridad sobre tu carrera profesional, oportunidades laborales, proyectos y estabilidad 
+                    financiera. Toma decisiones con confianza.
+                </p>
+                <p class="service-price">$40.000 COP</p>
+                <p class="service-details">• Enfoque profesional • Consejo estratégico • Duración: 40-50 min</p>
+            </div>
+
+            <!-- Servicio 5 -->
+            <div class="service-card">
+                <span class="service-icon">🌙</span>
+                <h3 class="service-title">Lectura Mensual Completa</h3>
+                <p class="service-description">
+                    Una visión completa de lo que el próximo mes te tiene preparado. Incluye todos los aspectos: 
+                    amor, trabajo, salud, finanzas y espiritualidad.
+                </p>
+                <p class="service-price">$55.000 COP</p>
+                <p class="service-details">• Análisis integral • Predicciones mensuales • Duración: 60 min</p>
+            </div>
+
+            <!-- Servicio 6 -->
+            <div class="service-card">
+                <span class="service-icon">⭐</span>
+                <h3 class="service-title">Lectura Anual del Destino</h3>
+                <p class="service-description">
+                    La lectura más completa. Descubre las energías, desafíos y oportunidades de todo el año. 
+                    Incluye orientación mes a mes y rituales personalizados.
+                </p>
+                <p class="service-price">$120.000 COP</p>
+                <p class="service-details">• Visión anual completa • Guía mes a mes • Duración: 90-120 min</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Llamado a la acción -->
+    <section class="cta-section">
+        <h2 class="cta-title">¿Listo para descubrir tu destino?</h2>
+        <p class="cta-text">
+            No dejes que la incertidumbre nuble tu camino. Las cartas del tarot están listas para revelarte 
+            las respuestas que buscas. Agenda tu lectura ahora y da el primer paso hacia la claridad que mereces.
+        </p>
+        <a href="https://wa.me/57XXXXXXXXXX?text=Hola,%20me%20interesa%20una%20lectura%20de%20tarot" class="cta-button">
+            Reservar Mi Lectura
+        </a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>✦ Tarot Místico - Todos los derechos reservados 2026 ✦</p>
+        <p style="margin-top: 0.5rem; font-size: 0.9rem;">Lecturas con amor y propósito espiritual</p>
+    </footer>
+
+    <!-- Botón flotante de WhatsApp -->
+    <a href="https://wa.me/57XXXXXXXXXX?text=Hola,%20me%20interesa%20una%20lectura%20de%20tarot" class="whatsapp-float" target="_blank">
+        <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M16 0c-8.837 0-16 7.163-16 16 0 2.825 0.737 5.607 2.137 8.048l-2.137 7.952 7.933-2.127c2.42 1.37 5.173 2.127 8.067 2.127 8.837 0 16-7.163 16-16s-7.163-16-16-16zM16 29.467c-2.482 0-4.908-0.646-7.07-1.87l-0.507-0.292-4.713 1.262 1.262-4.669-0.292-0.508c-1.207-2.100-1.847-4.507-1.847-6.924 0-7.435 6.046-13.481 13.481-13.481s13.481 6.046 13.481 13.481-6.046 13.481-13.481 13.481zM21.729 18.088c-0.396-0.198-2.348-1.157-2.713-1.29s-0.627-0.198-0.892 0.198c-0.264 0.396-1.025 1.29-1.257 1.556s-0.462 0.297-0.858 0.099c-0.396-0.198-1.671-0.616-3.182-1.964-1.175-1.050-1.968-2.346-2.199-2.742s-0.025-0.611 0.174-0.808c0.178-0.177 0.396-0.462 0.594-0.693s0.264-0.396 0.396-0.66c0.133-0.264 0.066-0.495-0.033-0.693s-0.892-2.151-1.223-2.943c-0.322-0.771-0.649-0.667-0.892-0.679-0.231-0.012-0.495-0.015-0.759-0.015s-0.693 0.099-1.057 0.495c-0.364 0.396-1.388 1.357-1.388 3.311s1.421 3.842 1.619 4.106c0.198 0.264 2.794 4.267 6.769 5.983 0.945 0.407 1.684 0.651 2.26 0.833 0.951 0.301 1.816 0.258 2.501 0.157 0.762-0.114 2.348-0.96 2.679-1.887s0.331-1.723 0.231-1.887c-0.099-0.165-0.364-0.264-0.759-0.462z"/>
+        </svg>
+    </a>
+
+    <script>
+        // Generar estrellas aleatorias
+        const starsContainer = document.getElementById('stars');
+        const numberOfStars = 100;
+
+        for (let i = 0; i < numberOfStars; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 100 + '%';
+            star.style.animationDelay = Math.random() * 3 + 's';
+            starsContainer.appendChild(star);
+        }
+
+        // Animación de entrada suave
+        window.addEventListener('load', () => {
+            document.querySelectorAll('.service-card').forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                setTimeout(() => {
+                    card.style.transition = 'all 0.6s ease';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 100);
+            });
+        });
+    </script>
+</body>
+</html>
